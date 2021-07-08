@@ -1,5 +1,6 @@
 import "./style.css";
 import * as three from "three";
+import { load_laptop } from "./objects/laptop";
 
 const scene = new three.Scene();
 
@@ -17,24 +18,21 @@ const renderer = new three.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-camera.position.setZ(30);
+camera.position.setZ(100);
 
-// Add geometry
-const geometry = new three.TorusGeometry(10, 3, 16, 100);
-const material = new three.MeshBasicMaterial({
-  color: 0xff7437,
-  wireframe: true,
-});
-const torus = new three.Mesh(geometry, material);
+// Add objects
+const light = new three.AmbientLight();
+scene.add(light);
 
-scene.add(torus);
+const laptop = await load_laptop;
+scene.add(laptop);
 
 // Animate
 function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 
-  torus.rotateX(0.02);
+  laptop.rotateY(Math.PI / 50);
 }
 
 animate();
