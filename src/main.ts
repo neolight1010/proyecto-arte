@@ -1,6 +1,7 @@
 import "./style.css";
 import * as three from "three";
 import { load_laptop_object } from "./objects/laptop";
+import point_light_with_helper from "./utils/point_light_with_helper";
 
 // Scene setup.
 const scene = new three.Scene();
@@ -21,21 +22,17 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(100);
 
 // Add objects
-const light1 = new three.PointLight(0xf533e8);
-light1.translateY(30);
+const [light1, lightHelper1] = point_light_with_helper(0, 30, 0, 0xf533e8);
 scene.add(light1);
+scene.add(lightHelper1);
 
-const light2 = new three.PointLight(0x89f51d);
-light2.translateY(30);
-light2.translateZ(30);
-light2.translateX(40);
+const [light2, lightHelper2] = point_light_with_helper(40, 30, 30, 0x89f51d);
 scene.add(light2);
+scene.add(lightHelper2);
 
-const light3 = new three.PointLight(0xf4ede8);
-light3.translateY(30);
-light3.translateZ(-30);
-light3.translateX(-40);
+const [light3, lightHelper3] = point_light_with_helper(-40, 30, -30, 0xf4ede8);
 scene.add(light3);
+scene.add(lightHelper3);
 
 const laptop = await load_laptop_object();
 laptop.applyMatrix4(new three.Matrix4().makeScale(0.8, 0.8, 0.8)); // Scale 0.8x
