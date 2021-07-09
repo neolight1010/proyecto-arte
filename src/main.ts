@@ -2,6 +2,7 @@ import "./style.css";
 import * as three from "three";
 import { load_laptop_object } from "./objects/laptop";
 import pointLightWithHelper from "./utils/poinLightWithHelper";
+import { loadStethoscopeObject } from "./objects/stethoscope";
 
 // Scene setup.
 const scene = new three.Scene();
@@ -38,6 +39,9 @@ const laptop = await load_laptop_object();
 laptop.applyMatrix4(new three.Matrix4().makeScale(0.8, 0.8, 0.8)); // Scale 0.8x
 laptop.translateY(-10);
 scene.add(laptop);
+
+const stethoscope = await loadStethoscopeObject();
+scene.add(stethoscope);
 
 // Animate
 function animate() {
