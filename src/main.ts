@@ -25,6 +25,8 @@ const light = new three.AmbientLight();
 scene.add(light);
 
 const laptop = await load_laptop_object();
+laptop.applyMatrix4(new three.Matrix4().makeScale(0.8, 0.8, 0.8)); // Scale 0.8x
+laptop.translateY(-10);
 scene.add(laptop);
 
 // Animate
@@ -32,7 +34,7 @@ function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 
-  laptop.rotateY(Math.PI / 50);
+  laptop.rotateY(Math.PI / 150);
 }
 
 animate();
