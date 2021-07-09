@@ -5,6 +5,7 @@ import pointLightWithHelper from "./utils/poinLightWithHelper";
 import { loadStethoscopeObject } from "./objects/stethoscope";
 import { Clock } from "three";
 import ellipseMotion from "./motion_funcs/ellipse";
+import neonBackground from "../assets/background/neon.png";
 
 export async function main(): Promise<void> {
   // Scene setup.
@@ -29,7 +30,7 @@ export async function main(): Promise<void> {
 
   // Add objects
   const textureLoader = new three.TextureLoader();
-  const background = textureLoader.load("assets/background/neon.png");
+  const background = textureLoader.load(neonBackground);
   scene.background = background;
 
   const [light1, lightHelper1] = pointLightWithHelper(0, 30, 0, 0xf533e8);
