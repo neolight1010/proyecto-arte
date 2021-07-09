@@ -3,7 +3,7 @@ import * as three from "three";
 import { load_laptop_object } from "./objects/laptop";
 import pointLightWithHelper from "./utils/poinLightWithHelper";
 import { loadStethoscopeObject } from "./objects/stethoscope";
-import { Clock, Matrix4 } from "three";
+import { Clock } from "three";
 import ellipseMotion from "./motion_funcs/ellipse";
 
 // Scene setup.
@@ -27,6 +27,10 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 const clock = new Clock(true);
 
 // Add objects
+const textureLoader = new three.TextureLoader();
+const background = textureLoader.load("assets/background/neon.png");
+scene.background = background;
+
 const [light1, lightHelper1] = pointLightWithHelper(0, 30, 0, 0xf533e8);
 scene.add(light1);
 scene.add(lightHelper1);
@@ -39,6 +43,10 @@ const [light3, lightHelper3] = pointLightWithHelper(-40, 30, -30, 0xf4ede8);
 scene.add(light3);
 scene.add(lightHelper3);
 
+const [light4, lightHelper4] = pointLightWithHelper(0, -40, 30);
+scene.add(light4);
+scene.add(lightHelper4);
+
 const laptop = await load_laptop_object();
 laptop.applyMatrix4(new three.Matrix4().makeScale(0.8, 0.8, 0.8)); // Scale 0.8x
 laptop.translateY(-10);
@@ -46,9 +54,6 @@ scene.add(laptop);
 
 const stethoscope = await loadStethoscopeObject();
 scene.add(stethoscope);
-
-const test = new three.SpotLight();
-scene.add(test);
 
 // Animate
 function animate() {
