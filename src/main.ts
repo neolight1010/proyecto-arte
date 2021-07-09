@@ -1,7 +1,7 @@
 import "./style.css";
 import * as three from "three";
 import { load_laptop_object } from "./objects/laptop";
-import point_light_with_helper from "./utils/point_light_with_helper";
+import pointLightWithHelper from "./utils/poinLightWithHelper";
 
 // Scene setup.
 const scene = new three.Scene();
@@ -22,15 +22,15 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(100);
 
 // Add objects
-const [light1, lightHelper1] = point_light_with_helper(0, 30, 0, 0xf533e8);
+const [light1, lightHelper1] = pointLightWithHelper(0, 30, 0, 0xf533e8);
 scene.add(light1);
 scene.add(lightHelper1);
 
-const [light2, lightHelper2] = point_light_with_helper(40, 30, 30, 0x89f51d);
+const [light2, lightHelper2] = pointLightWithHelper(40, 30, 30, 0x89f51d);
 scene.add(light2);
 scene.add(lightHelper2);
 
-const [light3, lightHelper3] = point_light_with_helper(-40, 30, -30, 0xf4ede8);
+const [light3, lightHelper3] = pointLightWithHelper(-40, 30, -30, 0xf4ede8);
 scene.add(light3);
 scene.add(lightHelper3);
 

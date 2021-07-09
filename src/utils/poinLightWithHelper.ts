@@ -1,6 +1,6 @@
 import { PointLight, PointLightHelper } from "three";
 
-export default function point_light_with_helper(
+export default function pointLightWithHelper(
   translateX: number,
   translateY: number,
   translateZ: number,
@@ -12,7 +12,7 @@ export default function point_light_with_helper(
   newLight.translateY(translateY);
   newLight.translateZ(translateZ);
 
-  const new_helper = new PointLightHelper(newLight, 5);
+  const newHelper = new PointLightHelper(newLight, 5);
 
-  return [newLight, new_helper];
+  return [newLight, newHelper];
 }
