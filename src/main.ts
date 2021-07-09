@@ -21,8 +21,21 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(100);
 
 // Add objects
-const light = new three.AmbientLight();
-scene.add(light);
+const light1 = new three.PointLight(0xf533e8);
+light1.translateY(30);
+scene.add(light1);
+
+const light2 = new three.PointLight(0x89f51d);
+light2.translateY(30);
+light2.translateZ(30);
+light2.translateX(40);
+scene.add(light2);
+
+const light3 = new three.PointLight(0xf4ede8);
+light3.translateY(30);
+light3.translateZ(-30);
+light3.translateX(-40);
+scene.add(light3);
 
 const laptop = await load_laptop_object();
 laptop.applyMatrix4(new three.Matrix4().makeScale(0.8, 0.8, 0.8)); // Scale 0.8x
@@ -35,6 +48,7 @@ function animate() {
   renderer.render(scene, camera);
 
   laptop.rotateY(Math.PI / 150);
+  laptop.rotateZ(Math.PI / 400);
 }
 
 animate();
