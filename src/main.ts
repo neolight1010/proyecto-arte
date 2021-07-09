@@ -1,6 +1,6 @@
 import "./style.css";
 import * as three from "three";
-import { load_laptop } from "./objects/laptop";
+import { load_laptop_object } from "./objects/laptop";
 
 const scene = new three.Scene();
 
@@ -24,7 +24,7 @@ camera.position.setZ(100);
 const light = new three.AmbientLight();
 scene.add(light);
 
-const laptop = await load_laptop;
+const laptop = await load_laptop_object();
 scene.add(laptop);
 
 // Animate
