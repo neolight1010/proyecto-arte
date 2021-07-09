@@ -2,8 +2,8 @@ import "./style.css";
 import * as three from "three";
 import { load_laptop_object } from "./objects/laptop";
 
+// Scene setup.
 const scene = new three.Scene();
-
 const camera = new three.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
