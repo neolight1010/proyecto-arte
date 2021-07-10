@@ -9,6 +9,7 @@ import neonBackground from "../assets/background/neon.png";
 import { loadHeadObject } from "./objects/head";
 import { loadZoomLogo } from "./objects/zoomLogo";
 import { MouseEventManager } from "threejs-interactive-object";
+import { loadTeamsLogo } from "./objects/teamsLogo";
 
 export async function main(): Promise<void> {
   // Set up audio button.
@@ -95,6 +96,13 @@ export async function main(): Promise<void> {
   zoomLogo.translateY(70);
   scene.add(zoomLogo);
 
+  const teamsLogo = await loadTeamsLogo(
+    document.querySelector("#teams-audio") as HTMLAudioElement
+  );
+  teamsLogo.translateX(-90);
+  teamsLogo.translateY(-70);
+  scene.add(teamsLogo);
+
   animate();
 
   // Animate
@@ -114,6 +122,7 @@ export async function main(): Promise<void> {
 
     stethoscope.rotateY(Math.PI / -200);
     zoomLogo.rotateY(Math.PI / 300);
+    teamsLogo.rotateY(-Math.PI / 300);
   }
 }
 
