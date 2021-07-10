@@ -6,8 +6,10 @@ import { loadStethoscopeObject } from "./objects/stethoscope";
 import { Clock } from "three";
 import ellipseMotion from "./motion_funcs/ellipse";
 import neonBackground from "../assets/background/neon.png";
+import { loadHeadObject } from "./objects/head";
 
 export async function main(): Promise<void> {
+  // Set up audio button.
   const bgAudio = document.querySelector("#bg-audio") as HTMLAudioElement;
 
   const playAudioBtn = document.querySelector(
@@ -77,6 +79,10 @@ export async function main(): Promise<void> {
 
   const stethoscope = await loadStethoscopeObject();
   scene.add(stethoscope);
+
+  const head = await loadHeadObject();
+  scene.add(head);
+  head.translateY(10);
 
   animate();
 
