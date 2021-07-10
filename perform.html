@@ -14,14 +14,20 @@
     }
   </style>
   <body class="bg-washed-green pa5">
-    <div id="app" class="code bg-lightest-blue pa3 br2">
+    <div
+      id="app"
+      class="code bg-lightest-blue pa3 br2 flex flex-column items-center"
+    >
       <h1 id="title" class="f1 tc">Educación en línea</h1>
 
       <p class="tc">¿Cuál ha sido su experiencia con la educación en línea?</p>
 
-      <canvas id="canvas" class="tc" width="300" height="300"></canvas>
-    </div>
+      <canvas id="canvas" width="300" height="300"></canvas>
 
+      <a id="submit" class="f6 link dim br1 ph3 pv2 mb2 dib white bg-navy mt4"
+        >Enviar</a
+      >
+    </div>
     <script type="module" src="/src/scripts/perform.ts"></script>
   </body>
 </html>
