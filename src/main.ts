@@ -8,6 +8,27 @@ import ellipseMotion from "./motion_funcs/ellipse";
 import neonBackground from "../assets/background/neon.png";
 
 export async function main(): Promise<void> {
+  const bgAudio = document.querySelector("#bg-audio") as HTMLAudioElement;
+
+  const playAudioBtn = document.querySelector(
+    "#play-audio-btn"
+  ) as HTMLAnchorElement;
+  const playAudioBtnIcon = playAudioBtn.querySelector("i");
+
+  playAudioBtn.onclick = () => {
+    if (bgAudio.paused) {
+      bgAudio.play();
+
+      playAudioBtnIcon?.classList.remove("la-volume-off");
+      playAudioBtnIcon?.classList.add("la-volume-up");
+    } else {
+      bgAudio.pause();
+
+      playAudioBtnIcon?.classList.remove("la-volume-up");
+      playAudioBtnIcon?.classList.add("la-volume-off");
+    }
+  };
+
   // Scene setup.
   const scene = new three.Scene();
 

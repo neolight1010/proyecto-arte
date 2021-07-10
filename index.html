@@ -4,14 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
+    />
     <title>Proyecto Arte</title>
   </head>
   <body>
-    <canvas id="bg"></canvas>
+    <div id="app" style="position: absolute">
+      <canvas id="bg"></canvas>
 
-    <audio autoplay loop>
-      <source src="assets/sound/background.wav" type="audio/wav" />
-    </audio>
-    <script type="module" src="/src/main.ts"></script>
+      <a
+        id="play-audio-btn"
+        class="ba bg-white br-100 b--dark-blue bw2"
+        style="position: absolute; left: 2em; top: 2em"
+      >
+        <i class="las la-volume-off f1"></i>
+      </a>
+
+      <audio id="bg-audio" loop>
+        <source src="assets/sound/background.wav" type="audio/wav" />
+      </audio>
+      <script type="module" src="/src/main.ts"></script>
+    </div>
   </body>
 </html>
