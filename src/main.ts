@@ -23,13 +23,13 @@ export async function main(): Promise<void> {
     if (bgAudio.paused) {
       bgAudio.play();
 
-      playAudioBtnIcon?.classList.remove("la-volume-off");
-      playAudioBtnIcon?.classList.add("la-volume-up");
+      playAudioBtnIcon?.classList.remove("la-play");
+      playAudioBtnIcon?.classList.add("la-stop");
     } else {
       bgAudio.pause();
 
-      playAudioBtnIcon?.classList.remove("la-volume-up");
-      playAudioBtnIcon?.classList.add("la-volume-off");
+      playAudioBtnIcon?.classList.remove("la-stop");
+      playAudioBtnIcon?.classList.add("la-play");
     }
   };
 
