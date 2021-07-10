@@ -17,6 +17,11 @@ esbuild@^0.12.8:
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.15.tgz#9d99cf39aeb2188265c5983e983e236829f08af0"
   integrity sha512-72V4JNd2+48eOVCXx49xoSWHgC3/cCy96e7mbXKY+WOWghN00cCmlGnwVLRhRHorvv0dgCyuMYBZlM2xDM5OQw==
 
+eventemitter3@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-4.0.7.tgz#2de9b68f6528d5644ef5c59526a1b4a07306169f"
+  integrity sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==
+
 fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
@@ -60,6 +65,12 @@ postcss@^8.3.5:
     nanoid "^3.1.23"
     source-map-js "^0.6.2"
 
+"raf-ticker@https://github.com/MasatoMakino/raf-ticker.git":
+  version "0.2.4"
+  resolved "https://github.com/MasatoMakino/raf-ticker.git#008af3d95cfaba3f23d3b6f9de8fc505c50b159b"
+  dependencies:
+    eventemitter3 "^4.0.7"
+
 resolve@^1.20.0:
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.20.0.tgz#629a013fb3f70755d6f0b7935cc1c2c5378b1975"
@@ -84,6 +95,12 @@ three@^0.130.1:
   version "0.130.1"
   resolved "https://registry.yarnpkg.com/three/-/three-0.130.1.tgz#797588b2877ace31603bbbc864eb2e3022f0b3b4"
   integrity sha512-OSPPKcGvFSiGkG3jFrwwC76PBV/ZSrGxpBbg28bW8s9GU8r/y2spNGtEXHEb/CVqo0Ctf5Lx2rVaxQZB6OasaA==
+
+"threejs-interactive-object@https://github.com/MasatoMakino/threejs-interactive-object.git":
+  version "0.10.0"
+  resolved "https://github.com/MasatoMakino/threejs-interactive-object.git#3f5d3a63c46e5f4eac4f69a5e035e0210c32d0d5"
+  dependencies:
+    raf-ticker "https://github.com/MasatoMakino/raf-ticker.git"
 
 typescript@^4.3.2:
   version "4.3.5"

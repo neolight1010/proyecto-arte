@@ -11,6 +11,7 @@
     "vite": "^2.4.0"
   },
   "dependencies": {
-    "three": "^0.130.1"
+    "three": "^0.130.1",
+    "threejs-interactive-object": "https://github.com/MasatoMakino/threejs-interactive-object.git"
   }
 }

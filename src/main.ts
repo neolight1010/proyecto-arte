@@ -8,6 +8,7 @@ import ellipseMotion from "./motion_funcs/ellipse";
 import neonBackground from "../assets/background/neon.png";
 import { loadHeadObject } from "./objects/head";
 import { loadZoomLogo } from "./objects/zoomLogo";
+import { MouseEventManager } from "threejs-interactive-object";
 
 export async function main(): Promise<void> {
   // Set up audio button.
@@ -50,6 +51,8 @@ export async function main(): Promise<void> {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
 
+  MouseEventManager.init(scene, camera, renderer);
+
   const clock = new Clock(true);
 
   // Add objects
@@ -85,7 +88,9 @@ export async function main(): Promise<void> {
   scene.add(head);
   head.translateY(10);
 
-  const zoomLogo = await loadZoomLogo();
+  const zoomLogo = await loadZoomLogo(
+    document.querySelector("#zoom-audio") as HTMLAudioElement
+  );
   zoomLogo.translateX(90);
   zoomLogo.translateY(70);
   scene.add(zoomLogo);
