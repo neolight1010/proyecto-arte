@@ -7,6 +7,7 @@ import { Clock } from "three";
 import ellipseMotion from "./motion_funcs/ellipse";
 import neonBackground from "../assets/background/neon.png";
 import { loadHeadObject } from "./objects/head";
+import { loadZoomLogo } from "./objects/zoomLogo";
 
 export async function main(): Promise<void> {
   // Set up audio button.
@@ -84,6 +85,11 @@ export async function main(): Promise<void> {
   scene.add(head);
   head.translateY(10);
 
+  const zoomLogo = await loadZoomLogo();
+  zoomLogo.translateX(90);
+  zoomLogo.translateY(70);
+  scene.add(zoomLogo);
+
   animate();
 
   // Animate
@@ -102,6 +108,7 @@ export async function main(): Promise<void> {
     ] = ellipseMotion(clock.getElapsedTime(), 110, 80, 0, -15);
 
     stethoscope.rotateY(Math.PI / -200);
+    zoomLogo.rotateY(Math.PI / 300);
   }
 }
 
