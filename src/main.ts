@@ -57,21 +57,17 @@ export async function main(): Promise<void> {
   const background = textureLoader.load(neonBackground);
   scene.background = background;
 
-  const [light1, lightHelper1] = pointLightWithHelper(0, 30, 0, 0xf533e8);
+  const [light1] = pointLightWithHelper(0, 30, 0, 0xf533e8);
   scene.add(light1);
-  scene.add(lightHelper1);
 
-  const [light2, lightHelper2] = pointLightWithHelper(40, 30, 30, 0x89f51d);
+  const [light2] = pointLightWithHelper(40, 30, 30, 0x89f51d);
   scene.add(light2);
-  scene.add(lightHelper2);
 
-  const [light3, lightHelper3] = pointLightWithHelper(-40, 30, -30, 0xf4ede8);
+  const [light3] = pointLightWithHelper(-40, 30, -30, 0xf4ede8);
   scene.add(light3);
-  scene.add(lightHelper3);
 
-  const [light4, lightHelper4] = pointLightWithHelper(0, -40, 30);
+  const [light4] = pointLightWithHelper(0, -40, 30);
   scene.add(light4);
-  scene.add(lightHelper4);
 
   const laptop = await load_laptop_object();
   laptop.applyMatrix4(new three.Matrix4().makeScale(0.8, 0.8, 0.8)); // Scale 0.8x
