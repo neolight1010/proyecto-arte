@@ -17,6 +17,9 @@ jobs:
         run: |
           yarn install
           yarn build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
@@ -24,6 +27,3 @@ jobs:
           # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: dist
-        env:
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABES_KEY: ${{ secrets.VITE_SUPABASE_KEY }}
