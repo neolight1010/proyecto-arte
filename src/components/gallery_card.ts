@@ -4,15 +4,15 @@ export default async function galleryCard(
   canvasData: string | Object
 ): Promise<HTMLDivElement> {
   const container = document.createElement("div") as HTMLDivElement;
-  container.classList.add("outline", "w-25", "pa3", "mr2", "mb2");
+  container.classList.add("outline", "mw-25", "mr2", "mb2", "h-auto");
 
   const canvasElement = document.createElement("canvas") as HTMLCanvasElement;
   const canvas = new fabric.StaticCanvas(canvasElement, {
-    width: container.clientWidth,
+    width: 300,
+    height: 300,
   });
 
   canvas.loadFromJSON(canvasData, () => {
-    canvas.renderAll();
     console.log("Canvas populated successfully.");
   });
 
