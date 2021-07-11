@@ -9,15 +9,18 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_KEY as string;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const canvas = new fabric.Canvas(
-  document.querySelector("#canvas") as HTMLCanvasElement
+  document.querySelector("#canvas") as HTMLCanvasElement,
+  {
+    backgroundColor: "white",
+  }
 );
 
 canvas.isDrawingMode = true;
-canvas.backgroundColor = "white";
 canvas.renderAll();
 
 // Submit drawing button.
 const submitBtn = document.querySelector("#submit") as HTMLAnchorElement;
+
 submitBtn.onclick = async () => {
   const canvasData = canvas.toJSON();
   const { error } = await supabase
