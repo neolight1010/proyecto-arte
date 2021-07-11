@@ -6,12 +6,12 @@ import disableAnchorBtn from "../utils/disableAnchorBtn";
 // Configure Supabase.
 const supabase = createSupabaseClient();
 
-const canvas = new fabric.Canvas(
-  document.querySelector("#canvas") as HTMLCanvasElement,
-  {
-    backgroundColor: "white",
-  }
-);
+const canvasElement = document.querySelector("#canvas") as HTMLCanvasElement;
+const canvas = new fabric.Canvas(canvasElement, {
+  width: canvasElement.width,
+  height: canvasElement.height,
+  backgroundColor: "white",
+});
 
 canvas.isDrawingMode = true;
 canvas.renderAll();
