@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         perform: resolve(__dirname, "perform.html"),
+        gallery: resolve(__dirname, "gallery.html"),
       },
     },
   },
