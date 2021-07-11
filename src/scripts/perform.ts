@@ -1,12 +1,10 @@
 import { fabric } from "fabric";
-import { createClient } from "@supabase/supabase-js";
 import { v4 as uuidv4 } from "uuid";
+import createSupabaseClient from "../utils/createSupabaseClient";
 import disableAnchorBtn from "../utils/disableAnchorBtn";
 
 // Configure Supabase.
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY as string;
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = createSupabaseClient();
 
 const canvas = new fabric.Canvas(
   document.querySelector("#canvas") as HTMLCanvasElement,
