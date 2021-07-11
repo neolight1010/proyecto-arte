@@ -2,6 +2,7 @@ import { fabric } from "fabric";
 import { v4 as uuidv4 } from "uuid";
 import createSupabaseClient from "../utils/createSupabaseClient";
 import disableAnchorBtn from "../utils/disableAnchorBtn";
+import enableAnchorBtn from "../utils/enableAnchorBtn";
 
 // Configure Supabase.
 const supabase = createSupabaseClient();
@@ -18,18 +19,29 @@ canvas.renderAll();
 
 // Submit drawing button.
 const submitBtn = document.querySelector("#submit") as HTMLAnchorElement;
+const hasAlreadySubmitted = false;
 
 submitBtn.onclick = async () => {
-  const canvasData = canvas.toJSON();
-  const { error } = await supabase
-    .from("gallery")
-    .insert([{ id: uuidv4(), canvas_data: canvasData }]);
-
-  if (!error) {
+  if (!hasAlreadySubmitted) {
     disableAnchorBtn(submitBtn);
-    canvas.clear();
-    console.log("Data uploaded successfully!");
-  } else {
-    console.log("An error has occurred: ", error);
+
+    const canvasData = canvas.toJSON();
+    const { error } = await supabase
+      .from("gallery")
+      .insert([{ id: uuidv4(), canvas_data: canvasData }]);
+
+    if (!error) {
+      const succesText = document.createElement("span") as HTMLSpanElement;
+      succesText.classList.add("mt3");
+      succesText.textContent = "Dibujo enviado correctamente.";
+      submitBtn.before(succesText);
+
+      enableAnchorBtn(submitBtn);
+
+      submitBtn.text = "Ir a galería.";
+      submitBtn.href = "gallery.html";
+    } else {
+      console.log("An error has occurred: ", error);
+    }
   }
 };
